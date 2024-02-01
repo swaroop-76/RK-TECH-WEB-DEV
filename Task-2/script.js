@@ -25,6 +25,12 @@ filterOption.addEventListener("change", filterTodo);
 
 function addTodo(event) {
     event.preventDefault();
+
+    if (todoInput.value.trim() === "") {
+        alert("Please enter something in the field!");
+        return;
+    }
+
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
     const newTodo = document.createElement("li");
@@ -144,3 +150,4 @@ function removeLocalTodos(todo) {
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
